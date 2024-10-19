@@ -1,10 +1,10 @@
 repeat task.wait(0.25) until game:IsLoaded();
 
 local SupportedGames = {
-    A_Universal_Time = {13772394625};
+    Blade_Ball = {13772394625};
 }
 
-if table.find(SupportedGames.A_Universal_Time,game.PlaceId) then
+if table.find(SupportedGames.Blade_Ball,game.PlaceId) then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Kitler69/InfiniteWare/refs/heads/main/Ball%20Blade.lua",true))();
 else
     game:GetService("Players").LocalPlayer:Kick("Game Not Supported")
