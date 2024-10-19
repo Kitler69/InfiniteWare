@@ -1,11 +1,11 @@
 repeat task.wait(0.25) until game:IsLoaded();
 
 local SupportedGames = {
-    Blade_Ball = {13772394625};
+    Blade_Ball = {6403373529};
 }
 
 if table.find(SupportedGames.Blade_Ball,game.PlaceId) then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Kitler69/InfiniteWare/refs/heads/main/Ball%20Blade.lua",true))();
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Kitler69/InfiniteWare/refs/heads/main/SlapBattle.lua",true))();
 else
     game:GetService("Players").LocalPlayer:Kick("Game Not Supported")
 end
