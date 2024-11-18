@@ -1,0 +1,49 @@
+local ImGui = loadstring(game:HttpGet('https://github.com/depthso/Roblox-ImGUI/raw/main/ImGui.lua'))()
+local lp = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+local Window = ImGui:CreateWindow({
+	Title = "CFrame Tool",
+	Size = UDim2.fromOffset(350, 300), --// Roblox property 
+	Position = UDim2.new(0.5, 0, 0, 70), --// Roblox property 
+})
+
+local CFrameTab = Window:CreateTab({
+	Name = "Copy Tool",
+	Visible = true 
+})
+local currentCFrame
+
+local label
+
+local function updateLabelContent(text)
+    if not label then
+        -- Create the label only once
+        label = CFrameTab:Label({
+            Text = text,
+        })
+    else
+        -- If the label exists, manually update its position and text
+        label:Remove() -- Remove old label
+        label = CFrameTab:Label({
+            Text = text,
+        })
+    end
+end
+
+CFrameTab:Button({
+	Text = "Copy CFrame",
+	Callback = function()
+		local roundedCframe = math.round(lp.CFrame.X) .. ", " .. math.round(lp.CFrame.Y) .. ", " .. math.round(lp.CFrame.Z)
+        setclipboard(tostring(roundedCframe))
+        updateLabelContent("CFrame = " .. tostring(roundedCframe))
+	end,
+})
+CFrameTab:Button({
+	Text = "Copy Position",
+	Callback = function()
+		local roundedPos = math.round(lp.Position.X) .. ", " .. math.round(lp.Position.Y) .. ", " .. math.round(lp.Position.Z)
+        setclipboard(tostring(roundedPos))
+        updateLabelContent("Position = " .. tostring(roundedPos))
+	end,
+})
+
