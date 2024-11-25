@@ -1344,3 +1344,4 @@ function Library:new()
     end
     return Tab
 end
+local main = Library.new()
